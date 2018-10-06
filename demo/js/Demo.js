@@ -55,6 +55,18 @@
                 sourceLink: sourceLinkRoot + '/attractionGravity.js'
             },
             {
+                name: 'Attraction, Anti-Gravity',
+                id: 'attractionAntiGravity',
+                init: Example.attractionAntiGravity,
+                sourceLink: sourceLinkRoot + '/attractionAntiGravity.js'
+            },
+            {
+                name: 'Attraction, Mixed Gravity',
+                id: 'attractionMixedGravity',
+                init: Example.attractionMixedGravity,
+                sourceLink: sourceLinkRoot + '/attractionMixedGravity.js'
+            },
+            {
                 name: 'Ball Pool',
                 id: 'ballPool',
                 init: Example.ballPool,

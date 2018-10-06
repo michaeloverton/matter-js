@@ -6,7 +6,7 @@ Matter.use(
 
 var Example = Example || {};
 
-Example.attractionGravity = function() {
+Example.attractionMixedGravity = function() {
 
     var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -55,8 +55,14 @@ Example.attractionGravity = function() {
     for (var i = 0; i < 100; i += 1) {
         var radius = Common.random(10, 30);
 
-        MatterAttractors.Attractors.gravityConstant = 0.01;        
+        MatterAttractors.Attractors.gravityConstant = 0.01;
+        MatterAttractors.Attractors.antiGravityConstant = -0.01;
+        
         var gravType = MatterAttractors.Attractors.gravity;
+        if(i%2 == 0) {
+            console.log("ANTI GRAV: " + i);
+            gravType = MatterAttractors.Attractors.antiGravity;
+        }
 
         var body = Bodies.circle(
             Common.random(10, render.options.width), 
