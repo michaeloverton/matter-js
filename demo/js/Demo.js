@@ -67,6 +67,12 @@
                 sourceLink: sourceLinkRoot + '/attractionMixedGravity.js'
             },
             {
+                name: 'Attraction, Charged',
+                id: 'attractionCharged',
+                init: Example.attractionCharged,
+                sourceLink: sourceLinkRoot + '/attractionCharged.js'
+            },
+            {
                 name: 'Ball Pool',
                 id: 'ballPool',
                 init: Example.ballPool,
