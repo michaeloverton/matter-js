@@ -214,6 +214,31 @@ const MatterAttractors = {
       // to apply forces to both bodies
       Matter.Body.applyForce(bodyA, bodyA.position, Matter.Vector.neg(force));
       Matter.Body.applyForce(bodyB, bodyB.position, force);
+    },
+
+    charge: function(bodyA, bodyB) {
+
+      // use Newton's law of gravitation
+      var bToA = Matter.Vector.sub(bodyB.position, bodyA.position);
+      var distanceSq = Matter.Vector.magnitudeSquared(bToA) || 0.0001;
+      var normal = Matter.Vector.normalise(bToA);
+      var magnitude = -MatterAttractors.Attractors.gravityConstant * (bodyA.mass * bodyB.mass / distanceSq);
+      
+      if(bodyA.charge * bodyB.charge > 0) { // repel
+        magnitude = magnitude * -1;
+      }
+      else if(bodyA.charge * bodyB.charge < 0) { // attract
+        magnitude = magnitude;
+      }
+      else { // 0
+        magnitude = 0;
+      }
+      
+      var force = Matter.Vector.mult(normal, magnitude);
+
+      // to apply forces to both bodies
+      Matter.Body.applyForce(bodyA, bodyA.position, Matter.Vector.neg(force));
+      Matter.Body.applyForce(bodyB, bodyB.position, force);
     }
     
   }
